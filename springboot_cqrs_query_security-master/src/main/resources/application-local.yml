@@ -2,7 +2,7 @@
 ### local
 ##############
 server:
-  port: 8082
+  port: 3000
 spring:
   h2:
     # h2 DB
@@ -49,6 +49,9 @@ management:
       probes:
         enabled: true
 
+#feign api
+api:
+  edu.url: https://jsonplaceholder.typicode.com # http://localhost:8081/
 
 # app
 app-info:

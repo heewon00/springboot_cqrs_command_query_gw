@@ -40,6 +40,22 @@ jasypt:
 
 jwt:
   secret: CloudNativeKtEduSecretKey20240228CloudNativeKtEduSecretKey20240228CloudNativeKtEduSecretKey20240228
+  cloud:
+    openfeign:
+      micrometer:
+        enabled: true
+
+# openfeign
+feign:
+  circuitbreaker:
+    enabled: false # api gw에서 적용하기 때문에 openfeign에서는 비활성화
+  client:
+    config:
+      default:
+        #logger-level: full
+        connectTimeout: 5000  # feign의 전역 timeout 설정 : 5초
+        readTimeout: 5000
+        loggerLevel: FULL ##basic
 
 # app
 app-info:

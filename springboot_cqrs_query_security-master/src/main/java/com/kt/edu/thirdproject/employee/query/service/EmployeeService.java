@@ -1,5 +1,6 @@
 package com.kt.edu.thirdproject.employee.query.service;
 
+import com.kt.edu.thirdproject.employee.feign.EduFeignClient;
 import com.kt.edu.thirdproject.employee.query.domain.EmployeeEntity;
 import com.kt.edu.thirdproject.employee.query.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,10 +18,12 @@ import java.util.List;
 public class EmployeeService {
 
     private final EmployeeRepository employeeRepository;
+    private final EduFeignClient eduFeignClient;
 
     @Cacheable("employees")
     public List<EmployeeEntity> getEmployeeList() {
         log.info("Request to get all Employees");
+        log.info("🔥eduFeignClient",eduFeignClient.getUsers());
         List<EmployeeEntity> employeeList = new ArrayList<>();
         employeeRepository.findAll().forEach(employeeList::add);
         return employeeList;
